@@ -77,7 +77,7 @@ const processQueue = async () => {
       },
     }
 
-    const energyLabelUrl = new URL('https://public.ep-online.nl/api/v3/PandEnergieLabel/Adres')
+    const energyLabelUrl = new URL('https://public.ep-online.nl/api/v5/PandEnergielabel/Adres')
     energyLabelUrl.searchParams.set('postcode', postcode)
     energyLabelUrl.searchParams.set('huisnummer', houseNumber)
     if (houseLetter) energyLabelUrl.searchParams.set('huisletter', houseLetter)
@@ -110,7 +110,7 @@ const processQueue = async () => {
         buildYear = data[0]._embedded.adressen[0]._embedded.panden[0].pand.oorspronkelijkBouwjaar
 
         energyLabelTemp = data[1]
-        energyLabel = energyLabelTemp ? energyLabelTemp[0]?.labelLetter : 'Not found'
+        energyLabel = energyLabelTemp ? energyLabelTemp[0]?.Energieklasse : 'Not found'
 
         city = data[0]._embedded.adressen[0].woonplaatsNaam
         addressId = data[0]._embedded.adressen[0].adresseerbaarObjectIdentificatie
