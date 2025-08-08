@@ -115,8 +115,8 @@ async function scrapeWozAndMonument(address, adresseerbaarId, streetNameFromApi,
           console.log(`Button with text "${fullAddress}" was clicked.`);
       } else {
         // if wasn't able to match, select first element in the list
-        await page.waitForSelector('#ggcSuggestionList-0');
-        await page.click('#ggcSuggestionList-0');
+        await page.waitForSelector(`ul[tabindex="0"]`);
+        await page.click(`ul[tabindex="0"]`);
       }
 
       // await page.waitForSelector('.waarden-row')
